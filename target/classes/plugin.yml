@@ -1,0 +1,12 @@
+name: ToolRepair
+version: '1.0.0'
+main: redphoenix.toolrepair.Main
+api-version: 1.16
+depend: [ Vault ]
+authors: [ RedPhoenix ]
+description: Stellt ein GUI bereit, über das Werkzeuge und Rüstungen reparierbar sind.
+website: rubymc.de
+commands:
+  repair:
+    description: Greife auf das GUI zu.
+
