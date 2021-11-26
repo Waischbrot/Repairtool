@@ -1,6 +1,7 @@
 package redphoenix.toolrepair;
 
 import net.milkbowl.vault.economy.Economy;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
@@ -69,9 +70,15 @@ public final class Main extends JavaPlugin {
     }
 
     public static double calculateRepairCost(Map<Enchantment, Integer> enchantmentMap, int damage){
-        int level = Collections.max(enchantmentMap.values());
         double basicCost = damage * ConfigManager.getBasicCostMultiplier();
-        double cost = basicCost * ConfigManager.getMultiplier(level);
+        double cost = 0;
+        if(enchantmentMap.isEmpty()){
+            cost = basicCost;
+        }
+        else{
+            int level = Collections.max(enchantmentMap.values());
+            cost = basicCost * ConfigManager.getMultiplier(level);
+        }
         return cost;
     }
 

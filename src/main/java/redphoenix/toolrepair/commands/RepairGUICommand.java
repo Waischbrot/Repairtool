@@ -6,6 +6,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import redphoenix.toolrepair.Main;
 import redphoenix.toolrepair.gui.RepairGUIHolder;
+import redphoenix.toolrepair.utils.ConfigManager;
 
 public class RepairGUICommand implements CommandExecutor {
     @Override

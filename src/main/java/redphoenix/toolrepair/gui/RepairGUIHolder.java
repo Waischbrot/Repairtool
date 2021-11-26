@@ -8,6 +8,8 @@ import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
 import redphoenix.toolrepair.utils.ItemBuilder;
 
+import java.util.ArrayList;
+
 public class RepairGUIHolder implements InventoryHolder {
     Inventory repairGUI = Bukkit.createInventory(this, 27, "§8§l➤ §9§lReparatur");
 
@@ -23,6 +25,16 @@ public class RepairGUIHolder implements InventoryHolder {
         ItemStack repair1Anvil = new ItemBuilder(Material.DAMAGED_ANVIL).setDisplayName("§c+1 Haltbarkeit").build();
         ItemStack repair10Anvil = new ItemBuilder(Material.CHIPPED_ANVIL).setDisplayName("§b+10 Haltbarkeit").build();
         ItemStack repairFullAnvil = new ItemBuilder(Material.ANVIL).setDisplayName("§aKomplett reparieren").build();
+
+        ArrayList<String> infoBookLore = new ArrayList<>();
+        infoBookLore.add("");
+        infoBookLore.add("§c1 Haltbarkeitspunkt: 0");
+        infoBookLore.add("§b10 Haltbarkeitspunkte: 0");
+        infoBookLore.add("§aKomplette Reparatur: 0");
+        infoBookLore.add("");
+        infoBookLore.add("§7Info: Je nach Haltbarkeit und Verzauberungs-");
+        infoBookLore.add("§7status verändert sich der Preis der Reparatur.");
+        ItemStack infoBook = new ItemBuilder(Material.BOOK).setDisplayName("§eReparaturpreise").setLore(infoBookLore).build();
 
         //top row
         repairGUI.setItem(0, grayPane);
@@ -43,7 +55,6 @@ public class RepairGUIHolder implements InventoryHolder {
         repairGUI.setItem(26, grayPane);
         //middle
         repairGUI.setItem(9, grayPane);
-        repairGUI.setItem(10, grayPane);
         repairGUI.setItem(11, grayPane);
         repairGUI.setItem(12, blackPane);
         repairGUI.setItem(14, blackPane);
@@ -54,6 +65,6 @@ public class RepairGUIHolder implements InventoryHolder {
         repairGUI.setItem(21, repair1Anvil);
         repairGUI.setItem(22, repair10Anvil);
         repairGUI.setItem(23, repairFullAnvil);
-
+        repairGUI.setItem(10, infoBook);
     }
 }
